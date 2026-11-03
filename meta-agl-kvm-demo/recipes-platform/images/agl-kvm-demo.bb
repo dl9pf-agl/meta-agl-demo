@@ -30,6 +30,8 @@ IMAGE_INSTALL += " \
 #IMAGE_LINGUAS = " "
 #NO_RECOMMENDATIONS = "1"
 
+# In a recipe MACHINE is always the host machine: read the guest machine hook of this host here too (see agl-kvm-guest.conf)
+include conf/include/agl-kvm-${MACHINE}.inc
 GUEST_MACHINE ?= "${AGL_GUEST_MACHINE}"
 
 GUEST_VM1_IMAGE ?= "agl-ivi-demo-flutter-guest"
