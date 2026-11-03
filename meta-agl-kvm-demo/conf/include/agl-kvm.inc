@@ -10,7 +10,8 @@ DISTRO_FEATURES:append = " virtualization"
 # Set default guest machine
 AGL_GUEST_MACHINE = "virtio-aarch64"
 
-# Hook to allow overriding AGL_GUEST_MACHINE for specific targets
+# Hook to allow overriding AGL_GUEST_MACHINE for specific targets. This works only if MACHINE is already set when this file is
+# read; agl-kvm-guest.conf and agl-kvm-demo.bb read the same hook again at a point where MACHINE is always known.
 include agl-kvm-${MACHINE}.inc
 
 BBMULTICONFIG = "agl-kvm-guest"
