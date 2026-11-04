@@ -9,7 +9,9 @@ machine_eula: {}
 images:
   - {target: agl-ivi-demo-flutter, features: [agl-demo], sdk: false, machines: [qemux86-64], tiers: nightly}
   - {target: agl-ivi-demo-qt, features: [agl-demo], sdk: false, machines: [qemux86-64], tiers: dispatch}
-  - {target: agl-kvm-demo, features: [agl-demo, agl-kvm], sdk: true, machines: [qemux86-64], tiers: nightly}
+  # The KVM demo is built on an aarch64 host (host qemuarm64, guest virtio-aarch64, the layer's default). The x86-64 variant (host and guest qemux86-64) is
+  # shelved: it fails in install_guest_images of agl-kvm-demo.bb, which does not find the guest image under that name.
+  - {target: agl-kvm-demo, features: [agl-demo, agl-kvm], sdk: true, machines: [qemuarm64], tiers: nightly}
   - {target: agl-cluster-demo-flutter, features: [agl-demo], sdk: false, machines: [qemux86-64], tiers: dispatch}
   - {target: agl-cluster-demo-qt, features: [agl-demo], sdk: false, machines: [qemux86-64], tiers: dispatch}
   - {target: agl-gateway-demo, features: [agl-demo], sdk: false, machines: [qemux86-64], tiers: dispatch}
