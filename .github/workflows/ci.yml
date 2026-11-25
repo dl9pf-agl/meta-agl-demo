@@ -23,6 +23,6 @@ permissions:
 
 jobs:
   ci:
-    uses: dl9pf-agl/agl-ci/.github/workflows/layer-ci.yml@894f155b7e9b7b2e2cf9756042de92ddabc0087b # main (agl-ci 894f155: the second fork gate, job approve, is commented out)
+    uses: dl9pf-agl/agl-ci/.github/workflows/layer-ci.yml@8006b93280cf4791d271876aac0763cda2e49702 # main (agl-ci 8006b93: trowl layer, vulnscout step, nightly publishing)
     with:
       mode: ${{ inputs.mode || 'build' }}   # without this the dispatch input `mode` is ignored (the default `build` of layer-ci.yml always wins)
